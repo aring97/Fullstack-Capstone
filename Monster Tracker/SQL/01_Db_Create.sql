@@ -1,0 +1,119 @@
+﻿IF db_id('Monster Tracker')IS NULL
+CREATE DATABASE [Monster Tracker]
+GO
+
+USE[Monster Tracker]
+GO
+
+DROP TABLE IF EXISTS [User];
+DROP TABLE IF EXISTS [Favorite];
+DROP TABLE IF EXISTS [UsersEncounters];
+DROP TABLE IF EXISTS [EncounterMonsters];
+DROP TABLE IF EXISTS [Monsters];
+DROP TABLE IF EXISTS [MonsterProf];
+DROP TABLE IF EXISTS [Proficiency];
+DROP TABLE IF EXISTS [MonsterSense];
+DROP TABLE IF EXISTS [Senses];
+DROP TABLE IF EXISTS [Abilities];
+GO
+
+CREATE TABLE [User](
+[Id] integer PRIMARY KEY IDENTITY,
+[UserName] nvarchar (20) NOT NULL,
+[FirebaseId] nvarchar (28) NOT NULL,
+CONSTRAINT  UQ_FirebaseId UNIQUE (FirebaseId),
+CONSTRAINT UQ_UserName UNIQUE (UserName)
+)
+
+CREATE TABLE [Monsters](
+[Id] Integer PRIMARY KEY IDENTITY,
+[Name] varchar NOT NULL,
+[Size] nvarchar(10) NOT NULL,
+[Type] varchar NOT NULL,
+[SubType] varchar,
+[Alignment] varchar NOT NULL,
+[AC] integer NOT NULL,
+[HP] integer NOT NULL,
+[HitDice] nvarchar(10) NOT NULL,
+[Walk] integer NOT NULL,
+[Fly] integer,
+[Swim] integer,
+[Burrow] integer,
+[Str] integer NOT NULL,
+[Dex] integer NOT NULL,
+[Con] integer NOT NULL,
+[Int] integer NOT NULL,
+[Wis] integer NOT NULL,
+[Cha] integer NOT NULL,
+[Vulnerabilities] varchar,
+[Resistances] varchar,
+[DamageImmunities] varchar,
+[ConditionImmunities] varchar,
+[Languages] varchar NOT NULL,
+[CR] Float NOT NULL,
+[Xp] integer NOT NULL,
+[SpellList] varchar NOT NULL,
+[Image] varchar
+)
+
+CREATE TABLE [Favorite](
+[Id] integer PRIMARY KEY IDENTITY,
+[UserId] integer NOT NULL,
+[MonsterId] integer NOT NULL,
+
+CONSTRAINT[FK_Favorite_User] FOREIGN KEY ([UserId]) REFERENCES [User] ([Id]),
+CONSTRAINT[FK_Favorite_Monster] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id])
+)
+
+CREATE TABLE [UsersEncounters](
+[Id] integer PRIMARY KEY IDENTITY,
+[UserId] integer NOT NULL,
+[Name] varchar NOT NULL,
+[Description] varchar NOT NULL,
+CONSTRAINT[FK_UserEncounter_User] FOREIGN KEY ([UserId]) REFERENCES [User] ([Id])
+)
+
+CREATE TABLE [EncounterMonsters](
+[Id] integer PRIMARY KEY IDENTITY,
+[EncounterId] integer,
+[MonsterId] integer,
+CONSTRAINT [FK_EncounterMonster_Encounter] FOREIGN KEY ([EncounterId]) REFERENCES [UsersEncounters] ([Id]),
+CONSTRAINT[FK_EncounterMonster_User] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id])
+)
+
+CREATE TABLE [Proficiency](
+[Id] integer PRIMARY KEY IDENTITY,
+[Name] varchar NOT NULL
+)
+
+CREATE TABLE [MonsterProf](
+[Id] integer PRIMARY KEY IDENTITY,
+[MonsterId] integer NOT NULL,
+[ProfId] integer NOT NULL,
+[value] integer NOT NULL
+CONSTRAINT[FK_MonsterProf_Monster] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id]),
+CONSTRAINT[FK_MonsterProf_Prof] FOREIGN KEY ([ProfId]) REFERENCES [Proficiency] ([Id])
+)
+
+CREATE TABLE [Senses](
+[Id] Integer PRIMARY KEY IDENTITY,
+[Name] varchar NOT NULL
+)
+
+CREATE TABLE[MonsterSense](
+[Id] integer PRIMARY KEY IDENTITY,
+[MonsterId] integer NOT NULL,
+[SenseId] integer NOT NULL,
+[Value] integer NOT NULL
+CONSTRAINT[FK_MonsterSense_Monster] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id]),
+CONSTRAINT[FK_MonsterSense_Sense] FOREIGN KEY ([SenseId]) REFERENCES [Senses] ([Id])
+)
+
+CREATE TABLE [Abilities](
+[Id] integer PRIMARY KEY IDENTITY,
+[MonsterId] integer NOT NULL,
+[Name] varchar NOT NULL,
+[Description] varchar NOT NULL,
+[Type] varchar NOT NULL
+CONSTRAINT[FK_Abilities_Monster] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id])
+)
