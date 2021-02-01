@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Tabloid_Fullstack.Models
+namespace Monster_Tracker.Models
 {
     public class Proficiency
     {
-        int Id { get; set; }
-        string ProfName { get; set; }
-        int value { get; set; }
+        public int Id { get; set; }
+        public string ProfName { get; set; }
+        public int value { get; set; }
     }
 }

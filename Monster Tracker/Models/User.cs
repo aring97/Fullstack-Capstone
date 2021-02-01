@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Tabloid_Fullstack.Models
+namespace Monster_Tracker.Models
 {
     public class User
     {
-        int Id { get; set; }
-        string UserName { get; set; }
-        string FirebaseId { get; set; }
-        string Email { get; set; }
+        public int Id { get; set; }
+        public string UserName { get; set; }
+        public string FirebaseId { get; set; }
+        public string Email { get; set; }
     }
 }
