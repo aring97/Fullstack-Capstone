@@ -21,6 +21,7 @@ CREATE TABLE [User](
 [Id] integer PRIMARY KEY IDENTITY,
 [UserName] nvarchar (20) NOT NULL,
 [FirebaseId] nvarchar (28) NOT NULL,
+[Email] varchar(MAX) NOT NULL,
 CONSTRAINT  UQ_FirebaseId UNIQUE (FirebaseId),
 CONSTRAINT UQ_UserName UNIQUE (UserName)
 )
@@ -49,11 +50,12 @@ CREATE TABLE [Monsters](
 [Resistances] varchar,
 [DamageImmunities] varchar,
 [ConditionImmunities] varchar,
-[Languages] varchar NOT NULL,
+[Languages] varchar,
 [CR] Float NOT NULL,
 [Xp] integer NOT NULL,
 [SpellList] varchar NOT NULL,
-[Image] varchar
+[Image] varchar,
+[ArmorList] varchar
 )
 
 CREATE TABLE [Favorite](
@@ -90,7 +92,7 @@ CREATE TABLE [MonsterProf](
 [Id] integer PRIMARY KEY IDENTITY,
 [MonsterId] integer NOT NULL,
 [ProfId] integer NOT NULL,
-[value] integer NOT NULL
+[Value] integer NOT NULL
 CONSTRAINT[FK_MonsterProf_Monster] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id]),
 CONSTRAINT[FK_MonsterProf_Prof] FOREIGN KEY ([ProfId]) REFERENCES [Proficiency] ([Id])
 )
