@@ -19,7 +19,7 @@ const Login = () => {
         logIn(email, password)
             .then((user) => {
                 setLoading(false);
-                toast.info(`Welcome back ${user.displayName}`);
+                toast.info(`Welcome back ${user.userName}`);
                 history.push("/");
             })
             .catch((err) => {

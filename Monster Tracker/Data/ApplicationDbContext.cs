@@ -17,7 +17,7 @@ namespace Monster_Tracker.Data
 
         public DbSet<Ability> Ability { get; set; }
         public DbSet<Encounter> Encounter { get; set; }
-        public DbSet<Monster> Monster { get; set; }
+        public DbSet<Monster> Monsters { get; set; }
         public DbSet<Proficiency> Proficiency { get; set; }
         public DbSet<Sense> Sense { get; set; }
         public DbSet<User> User { get; set; }

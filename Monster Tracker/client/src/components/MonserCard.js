@@ -1,12 +1,17 @@
 ﻿import React from "react";
 import { Link } from "react-router-dom";
 import { Card } from "reactstrap";
+import "./MonsterCard.css";
 
-const MonsterCard = ({ monster }) => {
+const MonsterCard = ({ Monster }) => {
     return (
-        <div className="card">
-            <img className="card-image-top" src={monster.Image} alt="Monster image" />
-            <div className="card-body">
+        <div>
+            <img className="card-image" src={Monster.image} alt="Monster image" />
+            <div>
+                <h4>{Monster.name}</h4>
+                <h6>{Monster.size} {Monster.type}, { Monster.alignment}</h6>
+                <p> HP:{Monster.hp} AC:{Monster.ac} CR:{Monster.cr} </p>
+                <p></p>
             </div>
         </div>
     );

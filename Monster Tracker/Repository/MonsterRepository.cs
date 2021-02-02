@@ -17,7 +17,7 @@ namespace Monster_Tracker.Repository
         }
         public List<Monster> GetAll()
         {
-            return _context.Monster.Select(m => new Monster()
+            return _context.Monsters.Select(m => new Monster()
             {
                 Id = m.Id,
                 Name = m.Name,
@@ -45,7 +45,7 @@ namespace Monster_Tracker.Repository
                 Languages = m.Languages,
                 CR = m.CR,
                 Xp = m.Xp,
-                SpellLsst = m.SpellLsst,
+                SpellList = m.SpellList,
                 Image = m.Image,
                 ArmorList = m.ArmorList
             }).ToList();

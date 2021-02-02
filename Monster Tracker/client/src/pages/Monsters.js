@@ -1,35 +1,31 @@
-﻿import React, { useState, createContext, useContext } from "react";
+﻿import React, { useState, createContext, useContext, useEffect } from "react";
 import { UserContext } from "../providers/UserProvider";
 import MonsterCard from "../components/MonserCard";
+import "./Monster.css";
 
 export const Monsters=()=> {
     const apiUrl = "/api/monster";
     const { getToken } = useContext(UserContext);
     const [monsters, setMonsters] = useState([]);
 
-    const getAllMonsters = () => {
-        getToken().then((token) =>
-            fetch(`${apiUrl}`, {
-                Method: "GET",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-                .then((res) => res.json())
-                .then((Monsters) => {
-                    setMonsters(Monsters);
-                })
-        );
-    };
-
-    getAllMonsters();
+    useEffect(() => {
+        getToken().then((token)=>
+        fetch(`${apiUrl}`, {
+            method: "GET",
+            headers: {
+                Authorization:`Bearer ${token}`,
+            },
+        })).then((res) => res.json())
+            .then((monsters) => {
+                setMonsters(monsters);
+            });
+    }, []);
     console.log(monsters)
     return (
         <div className="Container-fluid">
             <div className="row">
-                <div className="col">text</div>
                 {monsters.map((monster) => (
-                    <div className="col-3">
+                    <div className="col-3 bg-light div-background">
                         <MonsterCard Monster={monster} />
                     </div>
                 ))}

@@ -17,9 +17,9 @@ namespace Monster_Tracker.Models
         public int HP { get; set; }
         public string HitDice { get; set; }
         public int Walk { get; set; }
-        public int Fly { get; set; }
-        public int Swim { get; set; }
-        public int Burrow { get; set; }
+        public int? Fly { get; set; }
+        public int? Swim { get; set; }
+        public int? Burrow { get; set; }
         public int Str { get; set; }
         public int Dex { get; set; }
         public int Con { get; set; }
@@ -31,9 +31,9 @@ namespace Monster_Tracker.Models
         public string DamageImmunities { get; set; }
         public string ConditionImmunities { get; set; }
         public string Languages { get; set; }
-        public int CR { get; set; }
+        public double CR { get; set; }
         public int Xp { get; set; }
-        public string SpellLsst { get; set; }
+        public string SpellList { get; set; }
         public string Image { get; set; }
         public string ArmorList { get; set; }
     }
