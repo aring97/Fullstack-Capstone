@@ -7,8 +7,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Monster_Tracker.Models;
 using Monster_Tracker.Repository;
-    
-    ;
+
 namespace Monster_Tracker.Controllers
 {
     [Authorize]
