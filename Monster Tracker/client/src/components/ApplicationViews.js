@@ -7,6 +7,7 @@ import {
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Home from '../pages/Home';
+import Monsters from "../pages/Monsters";
 
 const ApplicationViews = () => {
     const { isLoggedIn } = useContext(UserContext);
@@ -21,6 +22,9 @@ const ApplicationViews = () => {
         <switch>
             <Route path="/" exact>
                 {isLoggedIn ? <Home /> : <Redirect to="/login" />}
+            </Route>
+            <Route path="/Monsters" exact>
+                {isLoggedIn ? <Monsters /> : <Redirect to="/login" />}
             </Route>
 
             <Route path="/login">

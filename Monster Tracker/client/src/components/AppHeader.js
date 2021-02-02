@@ -46,8 +46,8 @@ const AppHeader = () => {
                         {user ? (
                             <>
                                 <NavItem>
-                                    <NavLink to="/newpost" tag={Link}>
-                                        <div className="create-new-post">New Post</div>
+                                    <NavLink to="/Monsters" tag={Link}>
+                                        <div>All Monsters</div>
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
