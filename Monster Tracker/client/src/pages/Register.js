@@ -4,11 +4,12 @@ import { useHistory } from "react-router-dom";
 import { Button, Input } from "reactstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../providers/UserProvider";
+import "./Login.css";
 
 const Register = () => {
     const { register } = useContext(UserContext);
     const [loading, setLoading] = useState(false);
-    const [displayName, setDisplayName] = useState("");
+    const [userName, setDisplayName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirm, setConfirm] = useState("");
@@ -22,7 +23,7 @@ const Register = () => {
         }
         setLoading(true);
         const profile = {
-            displayName,
+            userName,
             email
         };
         register(profile, password).then((user) => {
@@ -39,10 +40,11 @@ const Register = () => {
     return (
         <div className="login-form">
             <form onSubmit={handleSubmit}>
-                <h2 className="text-center">User Register</h2>
+                <h2 className="text-center text-light">User Register</h2>
                 <div className="form-group">
                 </div>
-                <div className="form-group">
+                <div className="center-div">
+                <div className="form-group small-div">
                     <Input
                         onChange={(e) => setDisplayName(e.target.value)}
                         type="text"
@@ -52,7 +54,7 @@ const Register = () => {
                         required="required"
                     />
                 </div>
-                <div className="form-group">
+                    <div className="form-group small-div">
                     <Input
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
@@ -62,7 +64,7 @@ const Register = () => {
                         required="required"
                     />
                 </div>
-                <div className="form-group">
+                    <div className="form-group small-div">
                     <Input
                         onChange={(e) => setPassword(e.target.value)}
                         type="password"
@@ -72,7 +74,7 @@ const Register = () => {
                         required="required"
                     />
                 </div>
-                <div className="form-group">
+                    <div className="form-group small-div">
                     <Input
                         onChange={(e) => setConfirm(e.target.value)}
                         type="password"
@@ -82,15 +84,16 @@ const Register = () => {
                         required="required"
                     />
                 </div>
-                <div className="form-group">
+                    <div className="form-group small-div">
                     <Button type="submit" block color="danger" disabled={loading}>
-                        Sign Up
+                            Sign Up
           </Button>
+                    </div>
                 </div>
-                <div className="text-center small">
+                <div className="text-center small text-light">
                     Already have an account?
           <div>
-                        <Link to="/login">Log in here</Link>
+                        <Link to="/login" className="text-light">Log in here</Link>
                     </div>
                 </div>
             </form>

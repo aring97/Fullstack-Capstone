@@ -33,7 +33,7 @@ namespace Monster_Tracker.Controllers
 
         // POST api/<ValuesController>
         [HttpPost]
-        public IActionResult post(User user)
+        public IActionResult Post(User user)
         {
             _repo.Add(user);
             return CreatedAtAction(

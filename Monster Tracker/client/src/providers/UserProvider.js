@@ -21,13 +21,10 @@ export function UserProvider(props) {
         return firebase.auth().signInWithEmailAndPassword(email, pw)
             .then((signInResponse) => getUserProfile(signInResponse.user.uid))
             .then((user) => {
-                if (user.active == true) {
+                console.log(user)
                     localStorage.setItem("user", JSON.stringify(user));
                     setIsLoggedIn(true);
                     return user;
-                } else {
-                    return null;
-                }
             });
     };
 
@@ -39,9 +36,10 @@ export function UserProvider(props) {
     };
 
     const register = (user, password) => {
-        return firebase.auth().createUserWithEmailAndPassword(user, password)
+        return firebase.auth()
+            .createUserWithEmailAndPassword(user.email, password)
             .then((createResponse) =>
-                saveUser({ ...user, firebaseUserId: createResponse.user.uid })
+                saveUser({ ...user, firebaseId: createResponse.user.uid })
             ).then((savedUser) => {
                 localStorage.setItem("user", JSON.stringify(savedUser));
                 setIsLoggedIn(true);

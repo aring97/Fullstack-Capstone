@@ -4,9 +4,10 @@ import { useHistory } from "react-router-dom";
 import { Button, Input } from "reactstrap";
 import { Link } from "react-router-dom";
 import { UserContext } from "../providers/UserProvider";
+import "./Login.css"
 
 const Login = () => {
-    const { login } = useContext(UserContext);
+    const { logIn } = useContext(UserContext);
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -15,7 +16,7 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
-        login(email, password)
+        logIn(email, password)
             .then((user) => {
                 setLoading(false);
                 toast.info(`Welcome back ${user.displayName}`);
@@ -30,8 +31,9 @@ const Login = () => {
     return (
         <div className="login-form">
             <form onSubmit={handleSubmit}>
-                <h2 className="text-center">User Login</h2>
-                <div className="form-group">
+                <h2 className="text-center text-light">User Login</h2>
+                <div className="center-div">
+                <div className="form-group small-div">
                     <Input
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
@@ -41,8 +43,7 @@ const Login = () => {
                         required="required"
                     />
                 </div>
-                <div>
-                <div className="form-group">
+                <div className="form-group small-div">
                     <Input
                         onChange={(e) => setPassword(e.target.value)}
                         type="password"
@@ -52,16 +53,16 @@ const Login = () => {
                         required="required"
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group small-div">
                     <Button type="submit" block color="danger" disabled={loading}>
                         Sign in
           </Button>
                     </div>
     </div>
-                <div className="text-center small">
+                <div className="text-center small text-light">
                     Don't have an account?
           <div>
-                        <Link to="/register">Sign up here</Link>
+                        <Link to="/register" className="text-info">Sign up here</Link>
                     </div>
                 </div>
             </form>
