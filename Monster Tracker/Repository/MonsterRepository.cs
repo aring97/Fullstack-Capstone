@@ -50,7 +50,10 @@ namespace Monster_Tracker.Repository
                 ArmorList = m.ArmorList
             }).ToList();
         }
-
+        public Monster GetById(int id)
+        {
+            return _context.Monsters.Where(m => m.Id == id).FirstOrDefault();
+        }
 
     }
 }

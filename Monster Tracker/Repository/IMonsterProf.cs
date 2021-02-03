@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace Monster_Tracker.Repository
 {
-    public interface IMonsterRepository
+    public interface IMonsterProf
     {
-        List<Monster> GetAll();
-        Monster GetById(int id);
+        List<Proficiency> GetProficiencyByMonsterId(int id);
     }
 }

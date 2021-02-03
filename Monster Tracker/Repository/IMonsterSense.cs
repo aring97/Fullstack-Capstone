@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace Monster_Tracker.Repository
 {
-    public interface IMonsterRepository
+    public interface IMonsterSense
     {
-        List<Monster> GetAll();
-        Monster GetById(int id);
+        List<Sense> GetSensesByMonsterId(int id);
     }
 }

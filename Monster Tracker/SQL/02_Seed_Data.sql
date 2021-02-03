@@ -1,42 +1,28 @@
 ﻿SET IDENTITY_INSERT [User] ON
-INSERT INTO [User] ([Id], [UserName], [FirebaseId]) VALUES (1,'User1','placeholder'), (2,'User2','placeholder2');
+INSERT INTO [User] ([Id], [UserName], [FirebaseId],[Email]) VALUES (1,'User1','IXZmmikgGDSWN6o3qabt904Njxi1','user1@gmail.com'), (2,'User2','CfhJXAEDgkWOa0q97lf3y3DPVRv1','user2@gmail.com'),(3,'aring97','RInlmiLWBrXmPhD1cCORfumpVkh2','aring97@gmail.com');
 SET IDENTITY_INSERT [User] OFF
 
 SET IDENTITY_INSERT[Monsters] ON
 INSERT INTO [Monsters] ([Id], [Name], [Size], [Type], [SubType], [Alignment], [AC], [HP], [HitDice], [Walk], [Fly], [Swim], [Burrow],[Str], [Dex], [Con], [Int], [Wis], [Cha], [Vulnerabilities],[Resistances], [DamageImmunities], [ConditionImmunities], [Languages], [CR], [Xp], [SpellList],[Image], [ArmorList])
 VALUES (1, 'Young Black Dragon', 'Large', 'dragon',NULL, 'chatotic evil', 18, 127, '15d10+45', 40, 80, 40, Null, 19, 14, 17, 12, 11, 15, NULL, NULL, 'acid',NULL, 'Common, Draconic', 7, 2900,NULL, 'https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/70/1000/1000/636252732861675698.jpeg','Natural Armor'),
 (2,'Hobgoblin Warlord', 'Medium', 'humanoid', 'goblinoid', 'lawful evil', 20, 97, '13d8+39', 30, NULL, NULL, NULL, 16,14,16,14,11,15,NULL,NULL,NULL,NULL,'Common, Goblin', 6, 2300,NULL, 'https://i.pinimg.com/originals/3f/05/fb/3f05fb9c6137d12366a54136a9691db3.jpg', 'plate, shield'),
-(3,'Lich','Medium','undead', NULL, 'any evil alignment',17,135,'18d8 + 54',30, NULL, NULL, NULL, 11, 16,16,20,14,16,NULL,'Cold, Lightning, Necrotic','Poison; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks', 'Charmed, Exhaustion, Frightened, Paralyzed, Poisoned','Common plus up to five other languages',21,33000,'Spellcasting.-The lich is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 20, +12 to hit with spell attacks). The lich has the following wizard spells prepared:-Cantrips (at will): mage hand, prestidigitation, ray of frost-1st level (4 slots): detect magic, magic missile, shield, thunderwave-2nd level (3 slots): acid arrow, detect thoughts, invisibility, mirror image-3rd level (3 slots): animate dead, counterspell, dispel magic, fireball-4th level (3 slots): blight, dimension door-5th level (3 slots): cloudkill, scrying-6th level (1 slot): disintegrate, globe of invulnerability-7th level (1 slot): finger of death, plane shift-8th level (1 slot): dominate monster, power word stun-9th level (1 slot): power word kill','https://static.wikia.nocookie.net/forgottenrealms/images/3/3e/Monster_Manual_4e_-_Lich_-_p177_-_Chris_stevens_%26_Jim_zubkavich.jpg/revision/latest?cb=20200311073553','Natural Armor'),
+(3,'Lich','Medium','undead', NULL, 'any evil alignment',17,135,'18d8 + 54',30, NULL, NULL, NULL, 11, 16,16,20,14,16,NULL,'Cold, Lightning, Necrotic','Poison; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks', 'Charmed, Exhaustion, Frightened, Paralyzed, Poisoned','Common plus up to five other languages',21,33000,'Spellcasting.-The lich is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 20, +12 to hit with spell attacks). The lich has the following wizard spells prepared:-Cantrips (at will): mage hand, prestidigitation, ray of frost-1st level (4 slots): detect magic, magic missile, shield, thunderwave-2nd level (3 slots): acid arrow, detect thoughts, invisibility, mirror image-3rd level (3 slots): animate dead, counterspell, dispel magic, fireball-4th level (3 slots): blight, dimension door-5th level (3 slots): cloudkill, scrying-6th level (1 slot): disintegrate, globe of invulnerability-7th level (1 slot): finger of death, plane shift-8th level (1 slot): dominate monster, power word stun-9th level (1 slot): power word kill','https://pbs.twimg.com/media/D7syJKcW4AEVIup.jpg','Natural Armor'),
 (4,'Gorgon','Large','monstrosity',NULL,'unaligned',19,114,'12d10+48',40,NULL,NULL,NULL,20,11,18,2,12,7,NULL,NULL,NULL,'petrified',NULL,5,1800,NULL,'https://i.stack.imgur.com/17qT9.jpg','Natural Armor'),
 (5,'Ogre','Large','giant',NULL,'chaotic evil',11,59,'7d10+21',40,NULL,NULL,NULL,19,8,16,5,7,7,NULL,NULL,NULL,NULL,'Common, Giant',2,450,NULL,'https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/285/1000/1000/636252770535203221.jpeg','Hide Armor')
 SET IDENTITY_INSERT [Monsters] OFF
 
 SET IDENTITY_INSERT[MonsterProf] ON
-INSERT INTO [MonsterProf]([Id], [MonsterId], [ProfId], [Value])
-VALUES(1,1,2,5),(2,1,3,6),(3,1,6,5),(4,1,18,6),(5,1,23,5),(6,2,4,5),
-(7,2,5,3),(8,2,6,5),(9,3,3,10),(10,3,4,12),(11,3,5,9),(12,3,9,19),
-(13,3,12,12),(14,3,13,9),(15,3,18,9),(16,4,18,4)
+INSERT INTO [MonsterProf]([Id], [MonsterId], [ProfName], [Value])
+VALUES(1,1,'Dex',5),(2,1,'Con',6),(3,1,'Cha',5),(4,1,'Perception',6),(5,1,'Stealth',5),(6,2,'Int',5),
+(7,2,'Wis',3),(8,2,'Cha',5),(9,3,'Con',10),(10,3,'Int',12),(11,3,'Wis',9),(12,3,'Arcane',19),
+(13,3,'History',12),(14,3,'Insight',9),(15,3,'Perception',9),(16,4,'Perception',4)
 SET IDENTITY_INSERT[MonsterProf] OFF
 
 SET IDENTITY_INSERT[MonsterSense]ON
-INSERT INTO [MonsterSense]([Id], [MonsterId], [SenseId], [Value])
-VALUES (1,1,2,30),(2,1,3,120),(3,1,1,16),(4,2,3,60),(5,2,1,10),(6,3,5,120),
-(7,3,1,19),(8,4,3,60),(9,4,1,14),(10,5,3,60),(11,5,1,8)
+INSERT INTO [MonsterSense]([Id], [MonsterId], [SenseName], [Value])
+VALUES (1,1,'Blindsight',30),(2,1,'Darkvision',120),(3,1,'Passive Perception',16),(4,2,'Darkvision',60),(5,2,'Passive Perception',10),
+(6,3,'Truesight',120),(7,3,'Passive Perception',19),(8,4,'Darkvision',60),(9,4,'Passive Perception',14),(10,5,'Darkvision',60),(11,5,'Passive Perception',8)
 SET IDENTITY_INSERT[MonsterSense]OFF
-
-SET IDENTITY_INSERT[Senses]ON
-INSERT INTO [Senses]([Id], [Name])
-Values (1, 'Passive Perception'),(2,'Blindsight'),(3,'Darkvision'),(4,'Tremorsense'),(5,'Truesight');
-SET IDENTItY_INSERT[Senses]OFF
-
-SET IDENTITY_INSERT[Proficiency] ON
-INSERT INTO [Proficiency]([Id], [Name])
-VALUES (1, 'Str'), (2, 'Dex'), (3, 'Con'), (4, 'Int'), (5, 'Wis'), (6, 'Cha'),(7,'Acrobatics'),
-(8, 'Animal Handling'), (9, 'Arcane'), (10, 'Athletic'), (11, 'Deception'), (12,'History'), 
-(13,'Insight'),(14,'Intimidation'),(15,'Investigation'),(16,'Medicine'),(17,'Nature'),
-(18,'Perception'),(19,'Performance'),(20,'Persuasion'),(21,'Religon'),
-(22,'Sleight of Hand'),(23,'Stealth'),(24,'Survival');
-SET IDENTITY_INSERT[Proficiency] OFF
 
 SET IDENTITY_INSERT[Abilities]ON
 INSERT INTO [Abilities]([Id], [MonsterId],[Name],[Description],[Type])

@@ -8,6 +8,7 @@ namespace Monster_Tracker.Models
     public class Proficiency
     {
         public int Id { get; set; }
+        public int MonsterId { get; set; }
         public string ProfName { get; set; }
         public int value { get; set; }
     }

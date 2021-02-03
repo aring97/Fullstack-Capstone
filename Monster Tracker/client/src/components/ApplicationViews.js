@@ -8,6 +8,7 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Home from '../pages/Home';
 import Monsters from "../pages/Monsters";
+import MonsterDetails from "../pages/MonsterDetails";
 
 const ApplicationViews = () => {
     const { isLoggedIn } = useContext(UserContext);
@@ -26,7 +27,9 @@ const ApplicationViews = () => {
             <Route path="/Monsters" exact>
                 {isLoggedIn ? <Monsters /> : <Redirect to="/login" />}
             </Route>
-
+            <Route path="/MonsterDetails/:monsterId">
+                {isLoggedIn ? <MonsterDetails /> : <Redirect to="/login" />}
+            </Route>
             <Route path="/login">
                 <Login />
             </Route>

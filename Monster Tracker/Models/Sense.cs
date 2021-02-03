@@ -8,6 +8,7 @@ namespace Monster_Tracker.Models
     public class Sense
     {
         public int Id { get; set; }
+        public int MonsterId { get; set; }
         public string SenseName { get; set; }
         public int Value { get; set; }
     }

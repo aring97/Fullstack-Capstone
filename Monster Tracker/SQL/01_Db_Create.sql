@@ -28,11 +28,11 @@ CONSTRAINT UQ_UserName UNIQUE (UserName)
 
 CREATE TABLE [Monsters](
 [Id] Integer PRIMARY KEY IDENTITY,
-[Name] varchar NOT NULL,
+[Name] varchar(max) NOT NULL,
 [Size] nvarchar(10) NOT NULL,
-[Type] varchar NOT NULL,
-[SubType] varchar,
-[Alignment] varchar NOT NULL,
+[Type] varchar(max) NOT NULL,
+[SubType] varchar(max),
+[Alignment] varchar(max) NOT NULL,
 [AC] integer NOT NULL,
 [HP] integer NOT NULL,
 [HitDice] nvarchar(10) NOT NULL,
@@ -46,16 +46,16 @@ CREATE TABLE [Monsters](
 [Int] integer NOT NULL,
 [Wis] integer NOT NULL,
 [Cha] integer NOT NULL,
-[Vulnerabilities] varchar,
-[Resistances] varchar,
-[DamageImmunities] varchar,
-[ConditionImmunities] varchar,
-[Languages] varchar,
+[Vulnerabilities] varchar(max),
+[Resistances] varchar(max),
+[DamageImmunities] varchar(max),
+[ConditionImmunities] varchar(max),
+[Languages] varchar(max),
 [CR] Float NOT NULL,
 [Xp] integer NOT NULL,
-[SpellList] varchar NOT NULL,
-[Image] varchar,
-[ArmorList] varchar
+[SpellList] varchar(max),
+[Image] varchar(max),
+[ArmorList] varchar(max)
 )
 
 CREATE TABLE [Favorite](
@@ -70,8 +70,8 @@ CONSTRAINT[FK_Favorite_Monster] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] 
 CREATE TABLE [UsersEncounters](
 [Id] integer PRIMARY KEY IDENTITY,
 [UserId] integer NOT NULL,
-[Name] varchar NOT NULL,
-[Description] varchar NOT NULL,
+[Name] varchar(max) NOT NULL,
+[Description] varchar(max) NOT NULL,
 CONSTRAINT[FK_UserEncounter_User] FOREIGN KEY ([UserId]) REFERENCES [User] ([Id])
 )
 
@@ -83,39 +83,27 @@ CONSTRAINT [FK_EncounterMonster_Encounter] FOREIGN KEY ([EncounterId]) REFERENCE
 CONSTRAINT[FK_EncounterMonster_User] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id])
 )
 
-CREATE TABLE [Proficiency](
-[Id] integer PRIMARY KEY IDENTITY,
-[Name] varchar NOT NULL
-)
-
 CREATE TABLE [MonsterProf](
 [Id] integer PRIMARY KEY IDENTITY,
 [MonsterId] integer NOT NULL,
-[ProfId] integer NOT NULL,
+[ProfName] varchar(Max) NOT NULL,
 [Value] integer NOT NULL
-CONSTRAINT[FK_MonsterProf_Monster] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id]),
-CONSTRAINT[FK_MonsterProf_Prof] FOREIGN KEY ([ProfId]) REFERENCES [Proficiency] ([Id])
-)
-
-CREATE TABLE [Senses](
-[Id] Integer PRIMARY KEY IDENTITY,
-[Name] varchar NOT NULL
+CONSTRAINT[FK_MonsterProf_Monster] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id])
 )
 
 CREATE TABLE[MonsterSense](
 [Id] integer PRIMARY KEY IDENTITY,
 [MonsterId] integer NOT NULL,
-[SenseId] integer NOT NULL,
+[SenseName] nvarchar(max) NOT NULL,
 [Value] integer NOT NULL
-CONSTRAINT[FK_MonsterSense_Monster] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id]),
-CONSTRAINT[FK_MonsterSense_Sense] FOREIGN KEY ([SenseId]) REFERENCES [Senses] ([Id])
+CONSTRAINT[FK_MonsterSense_Monster] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id])
 )
 
 CREATE TABLE [Abilities](
 [Id] integer PRIMARY KEY IDENTITY,
 [MonsterId] integer NOT NULL,
-[Name] varchar NOT NULL,
-[Description] varchar NOT NULL,
-[Type] varchar NOT NULL
+[Name] varchar(max) NOT NULL,
+[Description] varchar(max) NOT NULL,
+[Type] varchar(max) NOT NULL
 CONSTRAINT[FK_Abilities_Monster] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id])
 )
