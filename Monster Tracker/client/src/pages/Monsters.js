@@ -27,6 +27,7 @@ export const Monsters=()=> {
                 {monsters.map((monster) => (
                     <div className="col-3 bg-light div-background">
                         <MonsterCard Monster={monster} />
+                        <button type="button" className="btn btn-info" value={monster.id}>Details</button>
                     </div>
                 ))}
             </div>
