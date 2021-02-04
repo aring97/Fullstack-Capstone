@@ -27,9 +27,7 @@ const ApplicationViews = () => {
             <Route path="/Monsters" exact>
                 {isLoggedIn ? <Monsters /> : <Redirect to="/login" />}
             </Route>
-            <Route path="/MonsterDetails/:monsterId">
-                {isLoggedIn ? <MonsterDetails /> : <Redirect to="/login" />}
-            </Route>
+            <Route path="/MonsterDetails/:monsterId" render={(props) => (isLoggedIn ? (< MonsterDetails {...props} />) : (<Redirect to="/login" />) )} />
             <Route path="/login">
                 <Login />
             </Route>
