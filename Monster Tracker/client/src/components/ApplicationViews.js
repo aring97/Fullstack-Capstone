@@ -9,6 +9,7 @@ import Register from '../pages/Register';
 import Home from '../pages/Home';
 import Monsters from "../pages/Monsters";
 import MonsterDetails from "../pages/MonsterDetails";
+import NewEncounter from "../pages/NewEncounter";
 
 const ApplicationViews = () => {
     const { isLoggedIn } = useContext(UserContext);
@@ -33,6 +34,9 @@ const ApplicationViews = () => {
             </Route>
             <Route path="/register">
                 <Register/>
+            </Route>
+            <Route path="/NewEncounter">
+                <NewEncounter/>
             </Route>
         </switch>
             )

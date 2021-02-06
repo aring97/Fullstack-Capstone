@@ -1,0 +1,38 @@
+﻿.form-container {
+    width:100%;
+}
+
+.form-area {
+    margin-left: 4em;
+    padding: 2em;
+    border: 2px solid;
+    width: 90%;
+    background-image: url(https://media.istockphoto.com/photos/old-yellowed-vintage-parchment-paper-picture-id177434429?k=6&m=177434429&s=170667a&w=0&h=YosZ_Y_l-BKQ8Ml-SMDFUl8kPqoGA1V-pzmPj01EPlY=);
+}
+
+.newBody {
+    height: 500px;
+    width:80%
+}
+
+.newTitle{
+    width:80%;
+    margin-bottom:2em;
+}
+
+.hr-color {
+    border-top: 1px solid red;
+}
+
+.div-style {
+    width: 100%;
+}
+
+.monster-card {
+    margin:25px;
+    background-color:gray;
+}
+.scroll {
+    overflow-y: scroll;
+    height:500px;
+}

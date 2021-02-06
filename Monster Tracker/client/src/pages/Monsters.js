@@ -2,15 +2,13 @@
 import { UserContext } from "../providers/UserProvider";
 import MonsterCard from "../components/MonserCard";
 import "./Monster.css";
-import { useHistory, useLocation } from "react-router-dom";
-import MonsterDetails from "./MonsterDetails";
+import { useHistory } from "react-router-dom";
 
 export const Monsters = () => {
     const history = useHistory();
     const apiUrl = "/api/monster";
     const { getToken } = useContext(UserContext);
     const [monsters, setMonsters] = useState([]);
-    const location = useLocation();
 
     useEffect(() => {
         getToken().then((token)=>
@@ -25,7 +23,7 @@ export const Monsters = () => {
             });
     }, []);
 
-    function details(id) {
+    const details=(id)=> {
         const location = {
             pathname: `/MonsterDetails/${id}`,
             state: { prevpath:`/Monsters`}
@@ -37,7 +35,7 @@ export const Monsters = () => {
         <div className="Container-fluid">
             <div className="row">
                 {monsters.map((monster) => (
-                    <div className="col-3 bg-light div-background">
+                    <div className="col-3 div-background">
                         <MonsterCard Monster={monster} />
                         <button type="button" className="btn btn-info"  onClick={() => { details(monster.id) }}>Details</button>
                     </div>

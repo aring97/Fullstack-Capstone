@@ -77,8 +77,8 @@ CONSTRAINT[FK_UserEncounter_User] FOREIGN KEY ([UserId]) REFERENCES [User] ([Id]
 
 CREATE TABLE [EncounterMonsters](
 [Id] integer PRIMARY KEY IDENTITY,
-[EncounterId] integer,
-[MonsterId] integer,
+[EncounterId] integer NOT NULL,
+[MonsterId] integer NOT NULL,
 CONSTRAINT [FK_EncounterMonster_Encounter] FOREIGN KEY ([EncounterId]) REFERENCES [UsersEncounters] ([Id]),
 CONSTRAINT[FK_EncounterMonster_User] FOREIGN KEY ([MonsterId]) REFERENCES [Monsters] ([Id])
 )
