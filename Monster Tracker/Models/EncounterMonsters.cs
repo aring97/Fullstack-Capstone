@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace Monster_Tracker.Models
 {
-    public class Encounter
+    public class EncounterMonsters
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public int EncounterId { get; set; }
+        public int MonsterId { get; set; }
     }
 }

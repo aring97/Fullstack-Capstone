@@ -21,12 +21,14 @@ namespace Monster_Tracker.Data
         public DbSet<Proficiency> Proficiency { get; set; }
         public DbSet<Sense> Sense { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<EncounterMonsters> EncounterMonsters { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Proficiency>().ToTable("MonsterProf");
             modelBuilder.Entity<Sense>().ToTable("MonsterSense");
             modelBuilder.Entity<Ability>().ToTable("Abilities");
+            modelBuilder.Entity<Encounter>().ToTable("UsersEncounters");
             base.OnModelCreating(modelBuilder);
         }
     }
