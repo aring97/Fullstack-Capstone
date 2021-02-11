@@ -4,6 +4,7 @@ import { UserContext } from "../providers/UserProvider";
 import { useHistory,useParams } from "react-router-dom";
 import AbilitySection from "../components/AbilitySection";
 import "./monsterDetails.css"
+
 export const MonsterDetails = (props) => {
     const { getToken } = useContext(UserContext);
     const [monsterDetails, setMonsterDetails] = useState({});
@@ -23,9 +24,6 @@ export const MonsterDetails = (props) => {
                 setMonsterDetails(monsterDetails);
             });
     }, []);
-
-    console.log(props.location.state.prevpath)
-    console.log(monsterDetails)
 
     const getMoveString = () => {
 

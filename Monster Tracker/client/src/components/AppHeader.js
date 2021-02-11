@@ -51,6 +51,11 @@ const AppHeader = () => {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
+                                    <NavLink to="/NewEncounter" tag={Link}>
+                                        <div>New Encounter</div>
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
                                     <NavLink className="pointer" onClick={logoutAndReturn}>
                                         Logout
                   </NavLink>

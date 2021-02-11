@@ -1,0 +1,8 @@
+﻿.div-favorite {
+    background-color:rgba(250, 8, 8, 0.31);
+    border:solid white 5px; 
+}
+.div-saved {
+    background-color:rgba(4, 132, 255, 0.31);
+    border:solid white 5px;
+}

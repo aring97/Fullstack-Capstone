@@ -33,5 +33,28 @@ namespace Monster_Tracker.Repository
         {
             return _context.Encounter.Where(e => e.UserId == id).ToList();
         }
+
+        public void DeleteEncounter(int id)
+        {
+            Encounter encounter = _context.Encounter.Where(e => e.Id == id).FirstOrDefault();
+            if (encounter != null)
+            {
+                var monsterList = _context.EncounterMonsters.Where(m => m.EncounterId == id).ToList();
+                monsterList.ForEach((monster) => { _context.EncounterMonsters.Remove(monster); });
+                _context.Encounter.Remove(encounter);
+                _context.SaveChanges();
+            }
+        }
+
+        public void editEncounter(Encounter encounter)
+        {
+            Encounter enc = _context.Encounter.FirstOrDefault(e => e.Id == encounter.Id);
+            if (enc != null)
+            {
+                enc.Name = encounter.Name;
+                enc.Description = encounter.Description;
+                _context.SaveChanges();
+            }
+        }
     }
 }

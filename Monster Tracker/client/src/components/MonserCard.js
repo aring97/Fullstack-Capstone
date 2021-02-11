@@ -2,7 +2,6 @@
 import "./MonsterCard.css";
 
 const MonsterCard = ({ Monster }) => {
-
     return (
         <div>
             <img className="card-image" src={Monster.image} alt="Monster image" />

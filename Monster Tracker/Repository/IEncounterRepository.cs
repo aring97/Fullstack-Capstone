@@ -7,5 +7,7 @@ namespace Monster_Tracker.Repository
         int addEncounter(Encounter encounter);
         Encounter GetById(int id);
         List<Encounter> GetByUserId(int id);
+        void DeleteEncounter(int id);
+        void editEncounter(Encounter encounter);
     }
 }

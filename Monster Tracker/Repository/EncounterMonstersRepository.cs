@@ -20,5 +20,18 @@ namespace Monster_Tracker.Repository
             _context.Add(encounterMonsters);
             _context.SaveChanges();
         }
+        public List<EncounterMonsters> GetByEncounterId(int id)
+        {
+            return _context.EncounterMonsters.Where(em => em.EncounterId == id).ToList();
+        }
+        public void Delete(int id)
+        {
+            EncounterMonsters em = _context.EncounterMonsters.Where(em => em.Id == id).FirstOrDefault();
+            if (em != null)
+            {
+                _context.EncounterMonsters.Remove(em);
+                _context.SaveChanges();
+            }
+        }
     }
 }

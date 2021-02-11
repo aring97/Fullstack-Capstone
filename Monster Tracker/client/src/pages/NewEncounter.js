@@ -15,6 +15,7 @@ const NewEncounter = () => {
     const [addedMonsters, setAddedMonsters] = useState([]);
     const [encounter, setEncounter] = useState({});
     const [monsterId, setMonsterId] = useState(0);
+    const [favoriteMonsters, setFavoriteMonsters] = useState([]);
     
     useEffect(() => {
         getToken().then((token) =>
@@ -26,6 +27,20 @@ const NewEncounter = () => {
             })).then((res) => res.json())
             .then((monsters) => {
                 setAllMonsters(monsters);
+            });
+    }, []);
+
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        getToken().then((token) =>
+            fetch(`/api/favorite/${user.id}`, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })).then((res) => res.json())
+            .then((favoriteMonster) => {
+                setFavoriteMonsters(favoriteMonster);
             });
     }, []);
 
@@ -86,8 +101,8 @@ const NewEncounter = () => {
                                 body: JSON.stringify(EMObject),
                             })
                     })
-                }) 
-        )
+                })
+        ).then(history.push("/"))
     }
    
     return (
@@ -124,6 +139,21 @@ const NewEncounter = () => {
                     <hr className="hr-color" />
                     <div className="container scroll">
                         <div className="row">
+                            <div className="col-12">Favorite Monsters</div>
+
+                            {favoriteMonsters.map((monster) => (
+                                <div className="col-3 monster-card">
+                                    <MonsterCard Monster={monster.monsterObject} />
+                                    <p className="btn btn-info" onClick={() => { details(monster.monsterObject.id) }}>Details</p>
+                                    <p className="btn btn-success" onClick={() => {
+                                        const monsterObj = { id: monsterId, Monster: monster.monsterObject };
+                                        const newId = monsterId + 1;
+                                        setMonsterId(newId);
+                                        setAddedMonsters([...addedMonsters, monsterObj])
+                                    }}>Add to Encounter</p>
+                                </div>
+                            ))}
+                            <div className="col-12">All Monsters</div>
                         {allMonsters.map((monster) => (
                             <div className="col-3 monster-card">
                                 <MonsterCard Monster={monster} />

@@ -22,6 +22,7 @@ namespace Monster_Tracker.Data
         public DbSet<Sense> Sense { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<EncounterMonsters> EncounterMonsters { get; set; }
+        public DbSet<Favorite> Favorite { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

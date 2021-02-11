@@ -1,17 +1,18 @@
-﻿import React, { useEffect, useState, useContext } from "react";
-import { UserContext } from "../providers/UserProvider";
-
+﻿import FavoriteMonsters from "../components/FavoriteMonsters";
+import SavedEncounters from "../components/SavedEncounters";
+import "./Home.css";
 const Home = () => {
-    const { getToken } = useContext(UserContext);
-
     return (
         <div className="contianer-fluid">
             <div className="row">
-                <div className="col">
-                    <div>text</div>
+                <div className="div-favorite col">
+                    <h3>Favorite Monsters</h3>
+                    <FavoriteMonsters  />
                 </div>
-                <div className="col">
-                    <div>text</div>
+                <div className="col-1"></div>
+                <div className="div-saved col">
+                    <h3>Saved Encounters</h3>
+                    <SavedEncounters/>
                 </div>
             </div>
         </div>

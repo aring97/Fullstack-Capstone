@@ -38,6 +38,7 @@ namespace Monster_Tracker
             services.AddTransient<IAbilityRepository, AbilityRepository>();
             services.AddTransient<IEncounterRepository, EncounterRepository>();
             services.AddTransient<IEncounterMonstersRepository, EncounterMonstersRepository>();
+            services.AddTransient<IFavoriteRepository, FavoriteRepository>();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             var firebaseProjectId = Configuration.GetValue<string>("FirebaseProjectId");
             var googleTokenUrl = $"https://securetoken.google.com/{firebaseProjectId}";
