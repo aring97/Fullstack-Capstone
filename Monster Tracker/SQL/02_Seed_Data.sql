@@ -1,5 +1,5 @@
 ﻿SET IDENTITY_INSERT [User] ON
-INSERT INTO [User] ([Id], [UserName], [FirebaseId],[Email]) VALUES (1,'User1','IXZmmikgGDSWN6o3qabt904Njxi1','user1@gmail.com'), (2,'User2','CfhJXAEDgkWOa0q97lf3y3DPVRv1','user2@gmail.com'),(3,'aring97','RInlmiLWBrXmPhD1cCORfumpVkh2','aring97@gmail.com');
+INSERT INTO [User] ([Id], [UserName], [FirebaseId],[Email]) VALUES (1,'User1','IXZmmikgGDSWN6o3qabt904Njxi1','user1@gmail.com'), (2,'User2','CfhJXAEDgkWOa0q97lf3y3DPVRv1','user2@gmail.com');
 SET IDENTITY_INSERT [User] OFF
 
 SET IDENTITY_INSERT[Monsters] ON

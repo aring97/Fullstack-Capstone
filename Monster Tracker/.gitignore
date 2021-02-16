@@ -364,7 +364,7 @@ FodyWeavers.xsd
 # This will be project specific files.
 .env.local
 
-appsettings.Development.json
+appsettings.Local.json
 .vs/
 
 .vscode/
