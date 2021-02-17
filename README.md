@@ -1,6 +1,6 @@
 # Monster Tracker
 
-Monster tracker is an application to be used by the Dungeon Master(DM) in a session of the tabletop roll playing game(TRPG) Dungeons and Dragons(D&D). Monster Tracker allows for users to save favorite or frequently used monsters to easily add to a new encounter.
+Monster tracker is an application to be used by the Dungeon Master(DM) in a session of the tabletop role playing game(TRPG) Dungeons and Dragons(D&D). Monster Tracker allows for users to save favorite or frequently used monsters to easily add to a new encounter.
 
 Installations required:
   - React and React-toastify in the client folder
