@@ -3,8 +3,8 @@
 Monster tracker is an application to be used by the Dungeon Master(DM) in a session of the tabletop roll playing game(TRPG) Dungeons and Dragons(D&D). Monster Tracker allows for users to save favorite or frequently used monsters to easily add to a new encounter.
 
 Installations required:
-  -React and React-toastify in the client folder
-  -Firebase account
+  - React and React-toastify in the client folder
+  - Firebase account
  
 ## SQL
 Connect to any local database and run 01_Db_Create.sql then 02_Seed_Data.sql to create and seed the database.
